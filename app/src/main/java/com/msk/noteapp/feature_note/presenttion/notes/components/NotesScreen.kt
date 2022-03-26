@@ -1,5 +1,6 @@
 package com.msk.noteapp.feature_note.presenttion.notes.components
 
+import android.util.Log
 import androidx.compose.animation.*
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -13,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
@@ -64,7 +66,7 @@ fun NotesScreen(
                 exit = fadeOut()+ slideOutVertically())
             {
                 OrderSection(
-                    modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp),
+                    modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp).testTag("order section test"),
                     state.noteOrder,
                     onorderChange = {
                         viewModel.onEvent(NoteEvent.Order(it))
@@ -79,7 +81,7 @@ fun NotesScreen(
                             .fillMaxSize()
                             .clickable {
                                        navController.navigate(route = Screen.AddEditNoteScreen.route+"?noteid=${note.id}&noteColor=${note.color}")
-                            },
+                            }.testTag("note item"),
                         onDeleteClick = {
                             viewModel.onEvent(NoteEvent.DeleteNote(note))
                             scope.launch {

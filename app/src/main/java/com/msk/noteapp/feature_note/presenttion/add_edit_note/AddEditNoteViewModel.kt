@@ -1,5 +1,6 @@
 package com.msk.noteapp.feature_note.presenttion.add_edit_note
 
+import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.toArgb
@@ -84,7 +85,9 @@ class AddEditNoteViewModel @Inject constructor(
                                 color=noteColor.value,
                                 id = currentnoteid
                             )
+
                         )
+
                         _eventFlow.emit(UiEvent.SaveNote)
                     }catch (e:InvalidNoteExeption){
                         _eventFlow.emit(

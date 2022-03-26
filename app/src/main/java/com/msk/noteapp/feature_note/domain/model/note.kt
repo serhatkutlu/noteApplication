@@ -11,7 +11,8 @@ val title:String,
 val content:String,
 val timeStamp:Int,
 val color:Int,
-@PrimaryKey val id:Int?=null
+@PrimaryKey(autoGenerate = true)
+val id:Int?=null
 ){
     companion object{
         val noteColors= listOf(RedOrange, LightGreen, Violet, BabyBlue, RedPink)

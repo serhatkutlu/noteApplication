@@ -16,13 +16,13 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModulle {
+object TestAppModulle {
 
     @Provides
     @Singleton
     fun provideDatabase(app:Application):noteDatabase{
-        return Room.databaseBuilder(
-            app,noteDatabase::class.java,"note_DB"
+        return Room.inMemoryDatabaseBuilder(
+            app,noteDatabase::class.java
         ).build()
     }
 

@@ -102,7 +102,8 @@ fun AddEditNoteSecreen(
                 },
                 isHintVisible = titleState.ishintVisible,
                 singleLine = true,
-                textStyle = MaterialTheme.typography.h5
+                textStyle = MaterialTheme.typography.h5,
+                testTag = "TitleTextField"
             )
             Spacer(Modifier.height(16.dp))
             TransparentHintTextField(
@@ -116,7 +117,8 @@ fun AddEditNoteSecreen(
                 },
                 isHintVisible = contentState.ishintVisible,
                 textStyle = MaterialTheme.typography.body1,
-                modifier = Modifier.fillMaxHeight()
+                modifier = Modifier.fillMaxHeight(),
+                testTag = "ContentTextField"
 
             )
 
